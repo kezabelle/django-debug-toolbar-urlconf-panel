@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<h4>{% trans "URL configurations" %}</h4>
+<table width="100%">
+	<thead>
+		<tr>
+			<th>{% trans "URL" %}
+            <br>{% trans "View function" %}</th>
+			<th>{% trans "URL name" %}
+            <br>{% trans "Keyword arguments" %}</th>
+            <th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+        {% for url in urlconf %}
+		<tr class="djDebugOdd">
+			<td>
+                <code>{{ url.url }}</code>
+            </td>
+            <td>
+            <code>{% if url.namespace %}{% for part in url.namespace %}{{ part }}:{% endfor %}{% endif %}{% if url.name %}{{ url.name }}{% endif %}</code>
+            </td>
+            <td>
+                {% if '<' in url.url %}{% else %}
+                    <form action="{{ url.url }}" method="GET" accept-charset="utf-8">
+                    <button type="submit">go</button>
+                    </form>
+                {% endif %}
+            </td>
+		</tr>
+        <tr class="djDebugEven">
+            <td><code>{{ url.module }}.{{ url.view }}</code></td>
+            <td><code>{{ url.named_url_kwargs|join:", " }}</code></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3"><hr></td>
+        </tr>
+        {% endfor %}
+	</tbody>
+</table>
