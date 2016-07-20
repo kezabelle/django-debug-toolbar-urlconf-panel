@@ -1,0 +1,16 @@
+language: python
+
+sudo: false
+
+notifications:
+  email: false
+
+install:
+  - pip install --upgrade pip setuptools tox
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+script:
+  - tox -e $TOX_ENV

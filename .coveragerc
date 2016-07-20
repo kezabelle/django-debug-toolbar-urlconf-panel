@@ -1,0 +1,18 @@
+[run]
+source = debug_toolbar_urlspanel
+omit =
+    debug_toolbar_urlspanel/test_*
+branch = True
+data_file = .coverage
+timid = False
+
+[report]
+exclude_lines =
+    pragma: no cover
+precision = 0
+show_missing = True
+omit =
+    debug_toolbar_urlspanel/test_*
+
+[xml]
+output = coverage.xml
