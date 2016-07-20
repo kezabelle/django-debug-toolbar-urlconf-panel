@@ -39,7 +39,7 @@ def make_readme(root_path):
 
 
 LONG_DESCRIPTION = "\r\n\r\n----\r\n\r\n".join(make_readme(HERE))
-SHORT_DESCRIPTION = ""
+SHORT_DESCRIPTION = "Django debug toolbar panel for listing all the URLs defined on a project, as per admindocs/django-extensions"
 KEYWORDS = (
     "debug",
     "urlconf",
@@ -71,6 +71,8 @@ setup(
     cmdclass={"test": PyTest},
     zip_safe=False,
     keywords=" ".join(KEYWORDS),
+    license="BSD License",
+    url='https://github.com/kezabelle/django-debug-toolbar-urlconf-panel',
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
