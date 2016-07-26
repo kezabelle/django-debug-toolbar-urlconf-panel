@@ -1,0 +1,32 @@
+<ul id="urls-body">
+{% for url in urlconf %}
+    <li data-namespace="{{ url.namespace_string|slugify }}" data-text="{{ url.textsearch }}">
+        <table width="100%">
+            <tr>
+                <th>URL:</th>
+                <td>
+                {% if '<' not in url.url %}<a href="{{ url.url }}"><code>{{ url.url }}</code></a>{% else %}<code>{{ url.url }}</code>{% endif %}
+            </td>
+            </tr>
+            <tr>
+                <th>View:</th>
+                <td><code>{{ url.module }}.{{ url.view }}</code></td>
+            </tr>
+            {% if url.name %}
+            <tr>
+                <th>Name:</th>
+                <td>
+                <code>{% if url.namespace %}{% for part in url.namespace %}{{ part }}:{% endfor %}{% endif %}{% if url.name %}{{ url.name }}{% endif %}</code>
+                </td>
+            </tr>
+            {% endif %}
+            {% if url.named_url_kwargs %}
+            <tr>
+                <th>Arguments:</th>
+                <td><code>{{ url.named_url_kwargs|join:", " }}</code></td>
+            </tr>
+            {% endif %}
+        </table>
+    </li>
+{% endfor %}
+</ul>

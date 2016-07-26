@@ -3,4 +3,13 @@ Change history for django-debug-toolbar-urlconf-panel
 
 ?next?
 ^^^^^^
-* ...
+* Reworked the layout of the panel, and added client side filtering.
+* Added the management command ``urls_list``
+* Added a view which may be mounted on the site, which does the same as the
+  debug_toolbar panel.
+
+
+0.1.0
+^^^^^
+
+* Initial work to get a panel loading all the URLs.

@@ -1,0 +1,8 @@
+{% extends "debug_toolbar_urlspanel/base.html" %}
+{% block content %}
+<form action="" method="GET" accept-charset="utf-8">
+    <input type="text" id="data-search" name="s" placeholder="&hellip;" value="{{ args }}">
+    <input type="submit" value="Refine">
+</form>
+{% include "debug_toolbar/panels/urls_list.html" with urlconf=urlconf only %}
+{% endblock %}
