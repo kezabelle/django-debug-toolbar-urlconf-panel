@@ -5,7 +5,7 @@ import django
 from django.contrib.admindocs.views import (simplify_regex, named_group_matcher,
                                             non_named_group_matcher)
 try:
-    from importli2 import import_module
+    from importlib import import_module
 except ImportError:
     from django.utils.importlib import import_module
 
